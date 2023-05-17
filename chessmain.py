@@ -25,5 +25,14 @@ def main():
     clock=p.time.Clock()
     screen.fill(p.Color("white"))
     gs=chessengine.GameState()
-    print(gs.board)
-main()
+    loadimages()
+    running=True
+    while running:
+        for e in p.event.get():
+            if e.type==p.QUIT:
+                running=False
+        clock.tick(max_fps)
+        p.display.flip()
+
+if __name__ == "__main__":
+    main()
